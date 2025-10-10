@@ -17,7 +17,7 @@ import subprocess, time, os, csv, platform, psutil
 # ---------- CONFIG ----------
 N_CORES = 4
 SCRIPTS = [
-    ("MPI Model Training", f"mpiexec -n 4 --map-by ppr:4:node --bind-to core python3 parallel_models_mpi.py"),
+    ("MPI Model Training", f"mpiexec --oversubscribe -n 4 python3 -u parallel_models_mpi.py"),
     ("Markowitz Optimization", "python3 -u markowitz_new.py"),
     ("Visualization & Plots", "python3 -u plot.py")
 ]
